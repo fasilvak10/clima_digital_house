@@ -18,10 +18,23 @@ function fetchWeather(city) {
   fetch(`${urlBase}?q=${city}&appid=${API_KEY}&units=metric&lang=es`)
     .then((data) => data.json())
     .then((data) => showWeatherData(data))
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      alert("Ciudad no encontrada");
+      console.log(error);
+    });
 }
 
 function showWeatherData(data) {
+  try {
+    if (data.cod === "404") {
+      throw new Error("Ciudad no encontrada");
+    }
+  } catch (error) {
+    console.log(error);
+    alert("Ciudad no encontrada");
+    return;
+  }
+
   const divRespondeData = document.getElementById("responseData");
   divRespondeData.innerHTML = "";
 
@@ -41,10 +54,13 @@ function showWeatherData(data) {
   tempInfo.textContent = `Temperatura: ${Math.floor(temperature)}°C`;
   divRespondeData.appendChild(tempInfo);
 
-
   const humidityInfo = document.createElement("p");
   humidityInfo.textContent = `Humedad: ${humidity}%`;
   divRespondeData.appendChild(humidityInfo);
+
+  const windInfo = document.createElement("p");
+  windInfo.textContent = `Velocidad de viendo: ${windSpeed} m/s`;
+  divRespondeData.appendChild(windInfo);
 
   const iconInfo = document.createElement("img");
   iconInfo.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
