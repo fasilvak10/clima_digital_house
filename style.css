@@ -1,0 +1,51 @@
+body {
+  font-family: "Atkinson Hyperlegible Mono", sans-serif;
+  background-color: rgb(148, 202, 238);
+  padding: 0px;
+  margin: 0px;
+  color: aliceblue;
+}
+
+.container {
+  max-width: 60%;
+  margin: 10px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(8, 115, 247, 0.678);
+  box-shadow: 0 2px 4px rgba(27, 34, 43, 0.425);
+  border-radius: 10px;
+}
+
+h1 {
+  color: white;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 70%;
+  margin: 10px auto;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  width: 20%;
+  margin: 10px auto;
+  border-radius: 10px;
+  border: none;
+
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(178, 185, 245);
+  color: rgb(7, 7, 7);
+}
+
+
